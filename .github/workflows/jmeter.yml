@@ -21,14 +21,14 @@ jobs:
 
       - name: Download Apache JMeter
         run: |
-          curl -L https://downloads.apache.org//jmeter/binaries/apache-jmeter-5.6.3.tgz -o jmeter.tgz
+          curl -L https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.3.tgz -o jmeter.tgz
           tar -xzf jmeter.tgz
           echo "$GITHUB_WORKSPACE/apache-jmeter-5.6.3/bin" >> $GITHUB_PATH
 
       - name: Run JMeter Tests
         run: |
           mkdir results
-          jmeter -n -t jmeter/test-reqres-crud.jmx -l results/results.jtl -e -o results/report
+          jmeter -n -t ./test-reqres-crud.jmx -l results/results.jtl -e -o results/report
 
       - name: Upload HTML Report
         uses: actions/upload-artifact@v4
