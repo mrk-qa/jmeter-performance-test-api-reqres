@@ -133,7 +133,7 @@ $(document).ready(function() {
         widgets: ['zebra']
     });
 
-    var data = {"OkPercent": 20.0, "KoPercent": 80.0};
+    var data = {"OkPercent": 0.0, "KoPercent": 100.0};
     var dataset = [
         {
             "label" : "FAIL",
@@ -173,7 +173,7 @@ $(document).ready(function() {
     });
 
     // Creates APDEX table
-    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.2, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.0, 500, 1500, "PUT - Update User"], "isController": false}, {"data": [0.0, 500, 1500, "DELETE - User"], "isController": false}, {"data": [0.0, 500, 1500, "GET - List Users"], "isController": false}, {"data": [0.0, 500, 1500, "POST - Create User"], "isController": false}, {"data": [1.0, 500, 1500, "GET - Single User"], "isController": false}]}, function(index, item){
+    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.0, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.0, 500, 1500, "PUT - Update User"], "isController": false}, {"data": [0.0, 500, 1500, "DELETE - User"], "isController": false}, {"data": [0.0, 500, 1500, "GET - List Users"], "isController": false}, {"data": [0.0, 500, 1500, "POST - Create User"], "isController": false}, {"data": [0.0, 500, 1500, "GET - Single User"], "isController": false}]}, function(index, item){
         switch(index){
             case 0:
                 item = item.toFixed(3);
@@ -187,7 +187,7 @@ $(document).ready(function() {
     }, [[0, 0]], 3);
 
     // Create statistics table
-    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 5, 4, 80.0, 614.2, 40, 2447, 185.0, 2447.0, 2447.0, 2447.0, 1.6249593760155996, 2.052145961975951, 0.31166213032174195], "isController": false}, "titles": ["Label", "#Samples", "FAIL", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions/s", "Received", "Sent"], "items": [{"data": ["PUT - Update User", 1, 1, 100.0, 226.0, 226, 226, 226.0, 226.0, 226.0, 226.0, 4.424778761061947, 5.323561946902655, 1.240147953539823], "isController": false}, {"data": ["DELETE - User", 1, 1, 100.0, 185.0, 185, 185, 185.0, 185.0, 185.0, 185.0, 5.405405405405405, 6.508657094594595, 1.097972972972973], "isController": false}, {"data": ["GET - List Users", 1, 1, 100.0, 2447.0, 2447, 2447, 2447.0, 2447.0, 2447.0, 2447.0, 0.4086636697997548, 0.489278964037597, 0.04868844503473641], "isController": false}, {"data": ["POST - Create User", 1, 1, 100.0, 173.0, 173, 173, 173.0, 173.0, 173.0, 173.0, 5.780346820809248, 6.937545158959538, 1.3717033959537572], "isController": false}, {"data": ["GET - Single User", 1, 0, 0.0, 40.0, 40, 40, 40.0, 40.0, 40.0, 40.0, 25.0, 37.744140625, 2.978515625], "isController": false}]}, function(index, item){
+    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 5, 5, 100.0, 536.8, 164, 1948, 194.0, 1948.0, 1948.0, 1948.0, 1.8601190476190474, 2.2383190336681547, 0.3567650204613095], "isController": false}, "titles": ["Label", "#Samples", "FAIL", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions/s", "Received", "Sent"], "items": [{"data": ["PUT - Update User", 1, 1, 100.0, 194.0, 194, 194, 194.0, 194.0, 194.0, 194.0, 5.154639175257732, 6.221810567010309, 1.4447084407216495], "isController": false}, {"data": ["DELETE - User", 1, 1, 100.0, 164.0, 164, 164, 164.0, 164.0, 164.0, 164.0, 6.097560975609756, 7.365901295731707, 1.2385670731707317], "isController": false}, {"data": ["GET - List Users", 1, 1, 100.0, 1948.0, 1948, 1948, 1948.0, 1948.0, 1948.0, 1948.0, 0.513347022587269, 0.6126074820328542, 0.06116048511293635], "isController": false}, {"data": ["POST - Create User", 1, 1, 100.0, 175.0, 175, 175, 175.0, 175.0, 175.0, 175.0, 5.714285714285714, 6.875, 1.3560267857142858], "isController": false}, {"data": ["GET - Single User", 1, 1, 100.0, 203.0, 203, 203, 203.0, 203.0, 203.0, 203.0, 4.926108374384237, 5.936345443349754, 0.5868996305418719], "isController": false}]}, function(index, item){
         switch(index){
             // Errors pct
             case 3:
@@ -217,7 +217,7 @@ $(document).ready(function() {
     }, [[0, 0]], 0, summaryTableHeader);
 
     // Create error table
-    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": [{"data": ["401/Unauthorized", 4, 100.0, 80.0], "isController": false}]}, function(index, item){
+    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": [{"data": ["401/Unauthorized", 5, 100.0, 100.0], "isController": false}]}, function(index, item){
         switch(index){
             case 2:
             case 3:
@@ -228,7 +228,7 @@ $(document).ready(function() {
     }, [[1, 1]]);
 
         // Create top5 errors by sampler
-    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 5, 4, "401/Unauthorized", 4, "", "", "", "", "", "", "", ""], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": ["PUT - Update User", 1, 1, "401/Unauthorized", 1, "", "", "", "", "", "", "", ""], "isController": false}, {"data": ["DELETE - User", 1, 1, "401/Unauthorized", 1, "", "", "", "", "", "", "", ""], "isController": false}, {"data": ["GET - List Users", 1, 1, "401/Unauthorized", 1, "", "", "", "", "", "", "", ""], "isController": false}, {"data": ["POST - Create User", 1, 1, "401/Unauthorized", 1, "", "", "", "", "", "", "", ""], "isController": false}, {"data": [], "isController": false}]}, function(index, item){
+    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 5, 5, "401/Unauthorized", 5, "", "", "", "", "", "", "", ""], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": ["PUT - Update User", 1, 1, "401/Unauthorized", 1, "", "", "", "", "", "", "", ""], "isController": false}, {"data": ["DELETE - User", 1, 1, "401/Unauthorized", 1, "", "", "", "", "", "", "", ""], "isController": false}, {"data": ["GET - List Users", 1, 1, "401/Unauthorized", 1, "", "", "", "", "", "", "", ""], "isController": false}, {"data": ["POST - Create User", 1, 1, "401/Unauthorized", 1, "", "", "", "", "", "", "", ""], "isController": false}, {"data": ["GET - Single User", 1, 1, "401/Unauthorized", 1, "", "", "", "", "", "", "", ""], "isController": false}]}, function(index, item){
         return item;
     }, [[0, 0]], 0);
 
